@@ -3,7 +3,7 @@
 
 Summary: Linux Utilities
 Name: lnxutils
-Version: 1.0
+Version: 2.0
 Release: 1%{?rpmrelease}%{?dist}
 License: GPLv3
 Group: Applications/File
