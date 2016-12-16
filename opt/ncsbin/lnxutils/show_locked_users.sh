@@ -1,4 +1,4 @@
-#!/usr/bin/ksh
+#!/bin/ksh
 # Script: show_locked_users.sh
 # Purpose: to get an overview of all users locked with a given reason (if found)
 # Author: Gratien D'haese
