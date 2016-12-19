@@ -1,4 +1,4 @@
-#!/bin/ksh
+#!/bin/bash
 
 # Script name: umount_stale_nfs_fs.sh
 # Purpose of this script is to force an umount of stale NFS mount points
