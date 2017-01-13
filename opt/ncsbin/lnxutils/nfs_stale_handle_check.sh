@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ksh
 
 # Purpose: a simple stale NFS monitor script which mails an alert (for now)
 # Author: Gratien D'haese
