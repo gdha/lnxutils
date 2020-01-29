@@ -9,3 +9,8 @@ Version 2.0 Release date 14/Feb/2017
 -----------
 * lnx-network-healthcheck.sh (new script)
 * show_locked_users.sh (new script)
+
+Version 2.1 Release date 29/Jan/2020
+-----------
+* nfs_stale_handle_check.sh is now pure bash
+* nfs_stale_handle_check.sh - older script became nfs_stale_handle_check.ksh (still works on other UNIXes)
