@@ -14,3 +14,7 @@ Version 2.1 Release date 29/Jan/2020
 -----------
 * nfs_stale_handle_check.sh is now pure bash
 * nfs_stale_handle_check.sh - older script became nfs_stale_handle_check.ksh (still works on other UNIXes)
+
+Version 2.3 Release date 21/Mar/2020
+-----------
+* umount_stale_nfs_fs.sh - redirect stderr to stdout for the stale nfs check

@@ -7,6 +7,7 @@
 # License: GPL v3
 
 # $Id: umount_stale_nfs_fs.sh,v 1.1 2014/12/03 13:02:17 gdhaese1 Exp $
+# Version 1.2 : pass the stderr to stdout for stale nfs script (21/Mar/2020)
 
 # general parameters
 ####################
@@ -65,7 +66,7 @@ function _whoami
 
 function umount_stale_nfs_on_hpux
 {
-    $Stale_nfs_script | while read LINE
+    $Stale_nfs_script  2>&1 | while read LINE
     do
         echo "WARNING: Found " $LINE
         MntPt=$(echo $LINE | awk '{print $2}')
@@ -90,7 +91,7 @@ function umount_stale_nfs_on_hpux
 
 function umount_stale_nfs_on_linux
 {
-    $Stale_nfs_script | while read LINE
+    $Stale_nfs_script 2>&1 | while read LINE
     do
         echo "WARNING: Found " $LINE
         MntPt=$(echo $LINE | awk '{print $2}')
@@ -113,7 +114,7 @@ function umount_stale_nfs_on_linux
 
 function umount_stale_nfs_on_sunos
 {
-    $Stale_nfs_script | while read LINE
+    $Stale_nfs_script 2>&1 | while read LINE
     do
         echo "WARNING: Found " $LINE
         MntPt=$(echo $LINE | awk '{print $2}')

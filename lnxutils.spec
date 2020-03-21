@@ -3,7 +3,7 @@
 
 Summary: Linux Utilities
 Name: lnxutils
-Version: 2.2
+Version: 2.3
 Release: 1%{?rpmrelease}%{?dist}
 License: GPLv3
 Group: Applications/File
@@ -52,6 +52,9 @@ mkdir -vp \
 %{bindir}/*.sh
 
 %changelog
+* Sat Mar 21 2020 Gratien D'haese ( gratien.dhaese at gmail.com ) -  2.3-1
+- umount stale nfs stderr to stdout redirection
+
 * Tue Feb 18 2020 Gratien D'haese ( gratien.dhaese at gmail.com ) -  2.2-1
 - reworked the stale nfs script
 
@@ -60,4 +63,3 @@ mkdir -vp \
 
 * Mon Feb 02 2015 Gratien D'haese ( gratien.dhaese at gmail.com ) - 1.0-1
 - Initial package.
-
