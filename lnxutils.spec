@@ -4,7 +4,8 @@
 Summary: Linux Utilities
 Name: lnxutils
 Version: 2.3
-Release: 1%{?rpmrelease}%{?dist}
+# Be aware to check Release nr!
+Release: 2%{?rpmrelease}%{?dist}
 License: GPLv3
 Group: Applications/File
 URL: https://github.com/gdha/lnxutils
@@ -52,10 +53,14 @@ mkdir -vp \
 %{bindir}/*.sh
 
 %changelog
-* Sat Mar 21 2020 Gratien D'haese ( gratien.dhaese at gmail.com ) -  2.3-1
-- umount stale nfs stderr to stdout redirection
+* Sat Mar 21 2020 Gratien D'haese ( gratien.dhaese at gmail.com ) -  2.3-2
+- umount stale nfs stderr to stdout redirection (revert)
+- send output to stdout as well required for umount script
 
 * Tue Feb 18 2020 Gratien D'haese ( gratien.dhaese at gmail.com ) -  2.2-1
+- write a line to syslog
+
+* Wed Jan 29 2020 Gratien D'haese ( gratien.dhaese at gmail.com ) -  2.1-1
 - reworked the stale nfs script
 
 * Tue Dec 13 2016 Gratien D'haese ( gratien.dhaese at gmail.com ) -  2.0-1

@@ -14,7 +14,7 @@ DEBUG=		# default off (set to "1" to enable debugging)
 mailusr=root    # default destination
 # LOGFILE="/var/tmp/${PRGNAME%.*}-$(date +%Y%m%d-%H:%M).log"
 PIDFILE="/tmp/StaleNFS.$$"
-version=2.2
+version=2.3
 
 function is_num
 {
@@ -61,6 +61,9 @@ function exec_df
 ## MAIN
 #####################################################################################
 
+# To avoid that a hanging script confuses out PIDFILE do a delete before we start
+rm -f $PIDFILE
+
 while getopts ":t:m:dhv" opt; do
     case $opt in
         d) DEBUG=1 ;;
@@ -73,7 +76,6 @@ while getopts ":t:m:dhv" opt; do
     esac
 done
 
-#MOUNTOPTS="-v"
 STR="nfs"
 
 cat /proc/mounts | grep -i "$STR" | \
@@ -85,6 +87,9 @@ cat /proc/mounts | grep -i "$STR" | \
 # When there a is $PIDFILE then we have a stale NFS mountpoint
 if [[ -f $PIDFILE ]] ; then
     send_mail "$(hostname) - stale NFS mountpoint detected"
+    # log to messages/journal so that ELK can pick it up (via filebeat)
     logger -t StaleNFS "stale mountpoint(s) $(cat $PIDFILE)"
+    # Write to stdout as we still need this as input for umount_stale_nfs_fs.sh script
+    cat $PIDFILE
     rm -f $PIDFILE
 fi
