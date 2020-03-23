@@ -12,7 +12,7 @@ PRGNAME=$(basename $0)
 TSEC=10		# default 10 seconds (overrule with -t option)
 DEBUG=		# default off (set to "1" to enable debugging)
 mailusr=root    # default destination
-# LOGFILE="/var/tmp/${PRGNAME%.*}-$(date +%Y%m%d-%H:%M).log"
+LOGFILE="/var/tmp/${PRGNAME%.*}-$$.log"
 PIDFILE="/tmp/StaleNFS.$$"
 version=2.3
 
@@ -55,14 +55,16 @@ function exec_df
     timeout $tsec df $mntpt >/dev/null && return
     # we also detected a stale NFS mountpoint at 2th attempt (write to $PIDFILE)
     printf "$mntpt " >> $PIDFILE
+    # Write to LOGFILE as we need the output for umount nfs script
+    echo "stale $mntpt" >> $LOGFILE
 }
 
 #####################################################################################
 ## MAIN
 #####################################################################################
 
-# To avoid that a hanging script confuses out PIDFILE do a delete before we start
-rm -f $PIDFILE
+# To avoid that a hanging script confuses us the PIDFILE/LOGFILE do a delete before we start
+rm -f $PIDFILE $LOGFILE
 
 while getopts ":t:m:dhv" opt; do
     case $opt in
@@ -90,6 +92,7 @@ if [[ -f $PIDFILE ]] ; then
     # log to messages/journal so that ELK can pick it up (via filebeat)
     logger -t StaleNFS "stale mountpoint(s) $(cat $PIDFILE)"
     # Write to stdout as we still need this as input for umount_stale_nfs_fs.sh script
-    cat $PIDFILE
-    rm -f $PIDFILE
+    cat $LOGFILE
 fi
+rm -f $PIDFILE $LOGFILE
+exit 0

@@ -5,7 +5,7 @@ Summary: Linux Utilities
 Name: lnxutils
 Version: 2.3
 # Be aware to check Release nr!
-Release: 2%{?rpmrelease}%{?dist}
+Release: 3%{?rpmrelease}%{?dist}
 License: GPLv3
 Group: Applications/File
 URL: https://github.com/gdha/lnxutils
