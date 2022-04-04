@@ -3,7 +3,8 @@
 
 Summary: Linux Utilities
 Name: lnxutils
-Version: 2.1
+Version: 2.4
+# Be aware to check Release nr!
 Release: 1%{?rpmrelease}%{?dist}
 License: GPLv3
 Group: Applications/File
@@ -52,12 +53,21 @@ mkdir -vp \
 %{bindir}/*.sh
 
 %changelog
-* Mon Apr 04 2022 Gratien D'haese ( gratien.dhaese at gmail.com ) -  2.1-1
+* Mon Apr 04 2022 Gratien D'haese ( gratien.dhaese at gmail.com ) -  2.4-1
 - Add NBU_route_test.sh script
+
+* Sat Mar 21 2020 Gratien D'haese ( gratien.dhaese at gmail.com ) -  2.3-2
+- umount stale nfs stderr to stdout redirection (revert)
+- send output to stdout as well required for umount script
+
+* Tue Feb 18 2020 Gratien D'haese ( gratien.dhaese at gmail.com ) -  2.2-1
+- write a line to syslog
+
+* Wed Jan 29 2020 Gratien D'haese ( gratien.dhaese at gmail.com ) -  2.1-1
+- reworked the stale nfs script
 
 * Tue Dec 13 2016 Gratien D'haese ( gratien.dhaese at gmail.com ) -  2.0-1
 - Added some new scripts
 
 * Mon Feb 02 2015 Gratien D'haese ( gratien.dhaese at gmail.com ) - 1.0-1
 - Initial package.
-
