@@ -1,3 +1,4 @@
+#!/bin/bash
 echo ""
 echo "Checking Route connectivity for domain server in bp.conf"
 echo ""
