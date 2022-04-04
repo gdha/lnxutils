@@ -3,7 +3,7 @@
 
 Summary: Linux Utilities
 Name: lnxutils
-Version: 2.0
+Version: 2.1
 Release: 1%{?rpmrelease}%{?dist}
 License: GPLv3
 Group: Applications/File
@@ -52,6 +52,9 @@ mkdir -vp \
 %{bindir}/*.sh
 
 %changelog
+* Mon Apr 04 2022 Gratien D'haese ( gratien.dhaese at gmail.com ) -  2.1-1
+- Add NBU_route_test.sh script
+
 * Tue Dec 13 2016 Gratien D'haese ( gratien.dhaese at gmail.com ) -  2.0-1
 - Added some new scripts
 

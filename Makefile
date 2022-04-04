@@ -42,6 +42,10 @@ rpm: dist $(name).spec
 		--define "debug_package %{nil}" \
 		--define "_rpmdir %(pwd)" $(name)-$(distversion).tar.gz
 
+rpm-sign: rpm
+	@echo -e "\033[1m== Add signature to $(name)-$(distversion) rpm ==\033[0;0m"
+	rpm --resign $(name)-*.rpm
+
 install: 
 	@echo -e "\033[1m== Installing Linux Utilities ==\033[0;0m"
 	install -Dp -m0755 .$(bindir)/*.sh $(DESTDIR)$(bindir)/

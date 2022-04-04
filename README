@@ -9,3 +9,7 @@ Version 2.0 Release date 14/Feb/2017
 -----------
 * lnx-network-healthcheck.sh (new script)
 * show_locked_users.sh (new script)
+
+Version 2.1 Release date 04/Apr/2022
+-----------
+* NBU_route_test.sh
