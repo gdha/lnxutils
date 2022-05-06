@@ -21,6 +21,7 @@ help:
   install         - Install Linux Utilities to DESTDIR (may replace files)\n\
   dist            - Create tar file\n\
   rpm             - Create RPM package\n\
+  rpm-sign        - Create and sign RPM package\n\
 \n\
 "
 

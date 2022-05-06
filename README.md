@@ -26,5 +26,9 @@ Version 2.4 Release date 04/Apr/2022
 -----------
 * NBU_route_test.sh
 
+Version 2.5 Release date 06/May/2022
+-----------
+* NBU_route_test.sh - better error catching
+
 ## License
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fgdha%2Flnxutils.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fgdha%2Flnxutils?ref=badge_large)

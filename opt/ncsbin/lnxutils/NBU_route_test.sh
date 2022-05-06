@@ -1,10 +1,15 @@
 #!/bin/bash
 echo ""
-echo "Checking Route connectivity for domain server in bp.conf"
+echo "**NBU** Checking Route connectivity for domain server in bp.conf"
 echo ""
 
-backupinterfaceip=`cat /usr/openv/netbackup/bp.conf |grep -i "REQUIRED_INTERFACE"|cut -f2 -d"=" |xargs  nslookup |grep -i "Address:"|grep -v "#"|cut -f2 -d" "`
+backupinterfaceip=`cat /usr/openv/netbackup/bp.conf |grep -i "^REQUIRED_INTERFACE"|cut -f2 -d"=" |xargs  nslookup |grep -i "Address:"|grep -v "#"|cut -f2 -d" "`
 backupinterface=`ip add list |grep -i $backupinterfaceip|awk '{print $7}'`
+if [[ -z "$backupinterface" ]] ; then
+   echo "No IP address allocated on backup interface"
+   exit 1
+fi
+
 echo $backupinterface |grep -iE "eno|eth|ens" >/dev/null
 if [ $? = 0 ]
 then
