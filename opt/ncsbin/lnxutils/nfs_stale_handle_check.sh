@@ -88,7 +88,12 @@ cat /proc/mounts | grep -i "$STR" | \
 
 # When there a is $PIDFILE then we have a stale NFS mountpoint
 if [[ -f $PIDFILE ]] ; then
-    send_mail "$(hostname) - stale NFS mountpoint detected"
+    [[ -f /etc/tier ]] && tier="$(head -1 /etc/tier)"
+    [[ -f /etc/company ]] && company="$(head -1 /etc/company)"
+    output_line="$(hostname)"
+    [[ -n "$tier" ]] && output_line="$output_line - $tier"
+    [[ -n "$company" ]] && output_line="$output_line - $company"
+    send_mail "$output_line - stale NFS mountpoint detected"
     # log to messages/journal so that ELK can pick it up (via filebeat)
     logger -t StaleNFS "stale mountpoint(s) $(cat $PIDFILE)"
     # Write to stdout as we still need this as input for umount_stale_nfs_fs.sh script

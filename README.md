@@ -30,5 +30,9 @@ Version 2.5 Release date 06/May/2022
 -----------
 * NBU_route_test.sh - better error catching
 
+Version 2.6 Release date 25/Nov/2022
+------------
+* nfs_stale_handle_check.sh - add tier and company to subject line of mail (if present)
+
 ## License
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fgdha%2Flnxutils.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fgdha%2Flnxutils?ref=badge_large)

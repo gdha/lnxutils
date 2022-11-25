@@ -3,7 +3,7 @@
 
 Summary: Linux Utilities
 Name: lnxutils
-Version: 2.5
+Version: 2.6
 # Be aware to check Release nr!
 Release: 1%{?rpmrelease}%{?dist}
 License: GPLv3
